@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" href=""> 
+
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/jquery.ui.custom.css">
+<script src="../js/js.js"></script>
+
+<title>Add Apartment - Admin</title>
+</head>
+
+<body>
+
+
+<div id="page-wrap"> <!--page-wrap [BEGIN] --> 
+	
+	<div id="header" >	<!--header [BEGIN] --> 
+		<div class="top-line"> 
+		</div>  
+		<div class="main-menu"> 
+			<a href="../"> Apartments </a> 
+			<a href="#"> Main </a> 
+			<a href="../"> logout</a>
+		</div>
+	</div>	 <!--header [END] --> 
+	
+	<div id="main-content"> <!--main-content [BEGIN] --> 
+		
+		<div id="sidebar"> <!--sidebar [BEGIN] --> 
+			
+			<div class="logo-wrap-admin">
+				
+			</div>
+			
+			<div class="filters-switch" id="filterSwitches">
+				<div class="active-switch switch-separator-border-right" id="adminOperations">
+					Operations
+				</div> 
+			</div>
+			
+			<div class="filters-wrap" id="filterWrap"> <!-- filters [BEGIN] -->  
+				  
+				<div class="filter-block"> <!-- price, meters and room count filters [END] --> 
+				 	<div class="button green-button mt10   width200" onclick=""> Back </div>
+					<div class="button gray-button mt10   width200" id="changeAccountSettings" style="display: none;"> Account </div>
+					<div class="button orange-button mt10   width200" id="logOut" onclick=""> Logout </div>
+				</div>  
+				
+			</div> <!-- filters [END] -->   
+			
+			
+				 
+		</div><!--sidebar [END] --> 
+		
+		<div id="apartments"> <!--apartments [BEGIN] --> 
+			
+			<form action="action_url" name="form_name" method="post" enctype="multipart/form-data">
+
+				<input type="hidden" name="action" value="add"/>
+				<div class="add-appartment-wrap">
+					
+					<div class="mb10">Add Apartment</div>
+					 
+					<div class="mb5 inline-block" id="appartmentsFilterCombo">
+						<label class="combo-box-label">
+					   		<select class="width200" id="apartmentSelect" name="apartmentSelect">
+					        	<option value="1" selected> Category1  </option>
+					        	<option value="2"> Category2 </option>
+					        	<option value="3"> Category3  </option>
+					    	</select>
+						</label> 
+					</div>
+					
+					<div class="mb5 ml15 inline-block" id="structureTypeFilterCombo">
+						<label class="combo-box-label">
+					   		<select class="width200" id="structureTypeSelect" name="structureTypeSelect">
+					        	<option value="1" selected> Subcategory1  </option>
+					        	<option value="2"> Subcategory2  </option>
+					    	</select>
+						</label> 
+					</div>
+					
+					<div class="mb5 inline-block" id="contractTypeFilterCombo" >
+						<label class="combo-box-label">
+					   		<select class="width200" id="contractSelect" name="contractSelect">
+					        	<option value="1" selected> Contract type1  </option>
+					        	<option value="2"> Contract type2  </option>
+					        	<option value="3"> Contract type3  </option>
+					    	</select>
+						</label> 
+					</div>
+					
+					<div class="mb5 ml15 inline-block" id="cityFilterCombo">
+						<label class="combo-box-label">
+					   		<select class="width200" id="locationSelect"  name="locationSelect"> 
+					        	<option value="1" selected> City1  </option>
+					        	<option value="2"> City2  </option>
+					    	</select>
+						</label> 
+					</div> 
+					
+					<div class="mb5 inline-block" id="districtFilterCombo">
+						<label class="combo-box-label">
+					   		<select class="width200" id="districtSelect" name="districtSelect"> 
+					        	<option value="1" selected> District1  </option>
+					        	<option value="2"> District2  </option>
+					    	</select>
+						</label> 
+					</div> 
+					
+					<div class="mb5 ml15 inline-block" id="renovationFilterCombo">
+						<label class="combo-box-label">
+					   		<select class="width200" id="renovationSelect" name="renovationSelect"> 
+					        	<option value="1" selected> Renovation type1  </option>
+					        	<option value="2"> Renovation type2  </option>
+					    	</select>
+						</label> 
+					</div> 
+					
+					<div class="mb10   inline-block" id="priceFilterSlider">  
+						Price
+						<div id="price-slider"> </div>
+						<div>
+							<input class="slider-values-inputs" type="text" id="price-min" name="price"/>
+							<input class="ml63 slider-values-inputs" type="text" id="price-max" />
+						</div> 
+					</div> 
+					
+					<div class="mb10 ml15 inline-block" id="areaFilterSlider"> 
+						Area
+						<div id="area-slider"> </div>
+						<div>
+							<input class="slider-values-inputs" type="text" id="area-min" name="area"/>
+							<input class="ml63 slider-values-inputs" type="text" id="area-max" />
+						</div>	
+					</div> 
+					
+					<div class="mb10  inline-block" id="roomFilterSlider">
+						Rooms
+						<div id="room-slider" class="width200"> </div>
+						<div>
+							<input class="slider-values-inputs" type="text" id="room-min" name="rooms"/>
+							<input class="ml63 slider-values-inputs" type="text" id="room-max" />
+						</div>	
+					</div>
+					
+					<div class="mb10 ml15 inline-block" id="floorFilterSlider">
+						Floors
+						<div id="floor-slider" class="width200"> </div>
+						<div>
+							<input class="slider-values-inputs" type="text" id="floor-min" name="floor"/>
+							<input class="ml63 slider-values-inputs" type="text" id="floor-max" />
+						</div>	
+					</div>
+					
+					<div class="mb10  inline-block" id="toiletFilterSlider">
+						Bathrooms
+						<div id="toilet-slider" class="width200"> </div>
+						<div>
+							<input class="slider-values-inputs" type="text" id="toilet-min" name="toilet"/>
+							<input class="ml63 slider-values-inputs" type="text" id="toilet-max" />
+						</div>	
+					</div>
+					
+					<div class="mb10 ml15 inline-block"  id="sleepRoomFilterSlider">
+						Sleep Rooms
+						<div id="sleep-room-slider" class="width200"> </div>
+						<div>
+							<input class="slider-values-inputs" type="text" id="sleep-room-min" name="sleepRoom"/>
+							<input class="ml63 slider-values-inputs" type="text" id="sleep-room-max" />
+						</div>	
+					</div> 
+					
+					<div class="mb10 inline-block width200">
+						Heading 
+						<div>
+							<input class="width190" type="text" name="heading" /> 
+						</div>	
+					</div> 
+					
+					<div class="mb10 ml15 inline-block">
+						Address 
+						<div>
+							<input class="width190" type="text" name="address" /> 
+						</div>	
+					</div> 
+					
+					<div class="mb10 inline-block">
+						Description 
+						<div> 
+							<textarea class="" rows="5" cols="79" name="desc"> </textarea>
+						</div>	
+					</div> 
+					
+					<div class="additional-filter-checkbox-container width200 inline-block">
+							Balcony
+							<div class="checkbox unchecked" id="balcony"> </div>
+							<input type="hidden" name="balcony" id="balconyForm" value="0">
+						</div> 
+						
+						<div class="additional-filter-checkbox-container width200 ml15 inline-block">
+							Parking
+							<div class="checkbox unchecked" id="parking"> </div>
+							<input type="hidden" name="parking" id="parkingForm" value="0">
+						</div>
+						
+						<div class="additional-filter-checkbox-container width200 inline-block">
+							Hot Water
+							<div class="checkbox unchecked" id="hot_water"> </div>
+							<input type="hidden" name="hot_water" id="hot_waterForm" value="0">
+						</div>
+						
+						<div class="additional-filter-checkbox-container width200 ml15 inline-block">
+							Heat
+							<div class="checkbox unchecked" id="heat"> </div>
+							<input type="hidden" name="heat" id="heatForm" value="0">
+						</div>
+						
+						<div class="additional-filter-checkbox-container width200 inline-block">
+							Shelf
+							<div class="checkbox unchecked" id="shelf"> </div>
+							<input type="hidden" name="shelf" id="shelfForm" value="0">
+						</div>
+						
+						<div class="additional-filter-checkbox-container width200 ml15 inline-block">
+							Gas
+							<div class="checkbox unchecked" id="gas"> </div>
+							<input type="hidden" name="gas" id="gasForm" value="0">
+						</div>
+						
+						<div class="additional-filter-checkbox-container width200 inline-block">
+							Phone
+							<div class="checkbox unchecked" id="phone"> </div>
+							<input type="hidden" name="phone" id="phoneForm" value="0">
+						</div>
+						
+						<div class="additional-filter-checkbox-container width200 ml15 inline-block">
+							Internet
+							<div class="checkbox unchecked" id="internet"> </div>
+							<input type="hidden" name="internet" id="internetForm" value="0">
+						</div>
+						
+						<div class="additional-filter-checkbox-container width200 inline-block">
+							TV
+							<div class="checkbox unchecked" id="tv"> </div>
+							<input type="hidden" name="tv" id="tvForm" value="0">
+						</div>
+						
+						<div class="additional-filter-checkbox-container width200 ml15 inline-block">
+							Air Conditioning
+							<div class="checkbox unchecked" id="air_cond"> </div>
+							<input type="hidden" name="air_cond" id="air_condForm" value="0">
+						</div>
+						
+						<div class="additional-filter-checkbox-container width200 inline-block">
+							Elevator
+							<div class="checkbox unchecked" id="elevator"> </div>
+							<input type="hidden" name="elevator" id="elevatorForm" value="0">
+						</div> 
+						
+						<div class="mt20 mb10">
+							<input type="file" name="photo_1"/>
+						</div>
+						
+						<div class="mb10">
+							<input type="file" name="photo_2"/>
+						</div>
+						
+						<div class="mb10 ">
+							<input type="file" name="photo_3"/>
+						</div>
+						
+						<div class="mb10">
+							<input type="file" name="photo_4"/>
+						</div>
+						
+						<div class="mb10">
+							<input type="file" name="photo_5"/>
+						</div>
+						
+						<div class="mb10">
+							<input type="file" name="photo_6"/>
+						</div>
+						
+						<div class="mb10">
+							<input type="file" name="photo_7"/>
+						</div>
+					
+						<div class="button green-button mt10 mr8" id="submitSearchButton" onclick="submit();"> Add Apartment </div>
+				</div>
+			</form>
+
+		</div> <!--apartments [END] --> 
+		
+	</div> <!--main-content [END] --> 
+	
+</div>  <!--page-wrap [END] --> 
+
+<script src="../js/jquery-1.8.3.js"></script> 
+<script src="../js/jquery.ui.custom.js"></script>
+<script>  
+$(function () {
+	initControls( "sender" );
+}); 
+
+function submit() {
+	document.forms["form_name"].submit(); 
+}   
+
+</script>
+</body>
+</html>
+
+ 
+
