@@ -1,4 +1,7 @@
 <?
+
+// action.php
+
 include("lib.php");
 
 $action = "";
